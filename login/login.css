@@ -69,11 +69,16 @@ header {
 }
 .login_content .login_button {
   width: 450px;
-  height: 50px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .login_content .login_button button {
   width: 100%;
-  height: 100%;
+  height: 50px;
   background-color: #006CE4;
   transition: 0.1s ease;
   display: flex;
@@ -90,4 +95,15 @@ header {
 }
 .login_content .login_button button:hover {
   background-color: #003580;
+}
+.login_content .login_button a {
+  text-decoration: none;
+  color: #585858;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  transition: 0.1s ease;
+}
+.login_content .login_button a:hover {
+  text-decoration: underline;
+  color: #003580;
 }/*# sourceMappingURL=login.css.map */

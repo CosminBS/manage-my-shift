@@ -24,4 +24,6 @@ function registerUser() {
 
     usersDB.push(newUser);
     localStorage.setItem('usersDB', JSON.stringify(usersDB));
+    alert("User registered successfully");
+    window.location.href = "/login/login.html";
 }
