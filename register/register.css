@@ -30,6 +30,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  z-index: 0;
 }
 .register_content .title h1 {
   font-family: "Poppins", sans-serif;
@@ -69,13 +70,16 @@ header {
 }
 .register_content .register_button {
   width: 450px;
-  height: 55px;
-  background-color: #006CE4;
+  height: 95px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .register_content .register_button button {
   width: 100%;
-  height: 100%;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,6 +95,57 @@ header {
   cursor: pointer;
   transition: 0.1s;
 }
+.register_content .register_button .redirectedBtn {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+.register_content .register_button .redirectedBtn p {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+.register_content .register_button .redirectedBtn a {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  color: #003580;
+  transition: 0.1s ease-in-out;
+}
+.register_content .register_button .redirectedBtn a:hover {
+  text-decoration: underline;
+}
 .register_content .register_button button:hover {
   background-color: #003580;
+}
+
+.hiden-screen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.hiden-screen #pop-up {
+  width: 350px;
+  height: 150px;
+  background-color: #96FFA7;
+  box-shadow: 15px 25px 25px 5px rgba(0, 0, 0, 0.224);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.hiden-screen #pop-up h1 {
+  font-family: "Poppins", sans-serif;
+}
+.hiden-screen #pop-up p {
+  font-family: "Roboto", sans-serif;
 }/*# sourceMappingURL=register.css.map */

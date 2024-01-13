@@ -32,6 +32,7 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    z-index: 0;
     .title h1{
         font-family: 'Poppins', sans-serif;
         font-weight: bold;
@@ -72,12 +73,15 @@ header{
 
     .register_button{
         width: 450px;
-        height: 55px;
-        background-color: #006CE4;
+        height: 95px;
         border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
         button{
             width: 100%;
-            height: 100%;
+            height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,8 +97,61 @@ header{
             cursor: pointer;
             transition: .1s;
         }
+        .redirectedBtn{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            p{
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+            }
+            a{
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+                text-decoration: none;
+                color: #003580;
+                transition: .1s ease-in-out;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+
+        }
         button:hover{
             background-color: #003580;
+        }
+    }
+}
+
+.hiden-screen{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+    #pop-up{
+        width: 350px;
+        height: 150px;
+        background-color: #96FFA7;
+        box-shadow: 15px 25px 25px 5px rgba(0, 0, 0, 0.224);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        h1{
+            font-family: 'Poppins', sans-serif;
+        }
+        p{
+            font-family: 'Roboto', sans-serif;
+
         }
     }
 }

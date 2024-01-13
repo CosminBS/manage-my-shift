@@ -93,6 +93,12 @@ header {
   text-transform: uppercase;
   border-radius: 10px;
 }
+.login_content .login_button .redirectedBtn {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .login_content .login_button button:hover {
   background-color: #003580;
 }

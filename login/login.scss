@@ -93,6 +93,12 @@ header{
             text-transform: uppercase;
             border-radius: 10px;
         }
+        .redirectedBtn{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
         button:hover{
             background-color: #003580;
         }

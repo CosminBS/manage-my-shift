@@ -17,7 +17,7 @@
 
             <div class="register_form">
                 <form action="submit">
-                    <input type="email" placeholder="email" id="email">
+                    <input type="email" placeholder="email" id="email" required>
                     <input type="text" placeholder="username" id="username">
                     <input type="password" placeholder="password" id="password">
                     <input type="text" placeholder="first name" id="firstName">
@@ -28,10 +28,21 @@
 
             <div class="register_button">
                 <button id="submit" type="submit">register</button>
+                <div class="redirectedBtn">
+                    <p>You already have an account?</p>
+                    <a href="../login/login.html">Log In</a>
+                </div>
             </div>
 
         </div>
     </header>
+
+    <div class="hiden-screen" id="hiden-screen">
+        <div id="pop-up">
+            <h1>Succesfuly!</h1>
+            <p>User has been registered.</p>
+        </div>
+    </div>
 
 </body>
 </html>
