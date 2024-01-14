@@ -24,29 +24,99 @@ function registerUser() {
         age: parseFloat(age.value)
     };
 
+    let errorMessage = [];
 
-    if(validateUser(newUser)){
+    if(!isValideEmail(email)){
+        errorMessage.push('Invalid email syntax')
+        email.style.border = '2px solid red'
+    }
+
+    if(!isValideUsername(username)){
+        errorMessage.push('Username must contain at least 6 characters long')
+        username.style.border = '2px solid red'
+    }
+
+    if(!isValidePassword(password)){
+        errorMessage.push('Password must contain at least 6 characters long')
+        password.style.border = '2px solid red'
+    }
+
+    if(!isValideFirstName(firstName)){
+        errorMessage.push('First name must contain at least 2 character long')
+        firstName.style.border = '2px solid red'
+    }
+
+    if(!isValideLastName(lastName)){
+        errorMessage.push('Last name must contain at least 2 character long')
+        lastName.style.border = '2px solid red'
+    }
+
+    if(!isValideAge(age)){
+        errorMessage.push('Age must be between 18 and 65')
+        age.style.border = '2px solid red'
+    }
+
+    if(errorMessage.length > 0){
+        displayErrorMessage(errorMessage)
+    } else {
         userDB.push(newUser);
         localStorage.setItem('userDB', JSON.stringify(userDB));
-        showPopup();
-    } else {
-        alert('All field need to be completed')
-    }
+        succesfulPopup()
+    };
+    
 
 };
 
-function validateUser(user){
-    return(
-        user.username.length >= 6 &&
-        user.password.length >= 6 &&
-        user.firstName.length >= 2 &&
-        user.lastName.length >= 2 &&
-        user.age >= 18 &&
-        user.age <= 65
-    )
+function isValideEmail(email){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    email.style.border = '2px solid green';
+
+    return emailRegex.test(email.value)
+    
 }
 
-function showPopup() {
+function isValideUsername(username){
+    if(username.value.length >= 6){
+        username.style.border = '2px solid green';
+        return true    
+    }
+};
+
+function isValidePassword(password){
+    if(password.value.length >= 6){
+        password.style.border = '2px solid green';
+        return true
+    }
+};
+
+function isValideFirstName(firstName){
+    if(firstName.value.length >= 2){
+        firstName.style.border = '2px solid green';
+        return true
+    }
+};
+
+function isValideLastName(lastName){
+    if(lastName.value.length >= 2){
+        lastName.style.border = '2px solid green';
+        return true
+    }
+};
+
+function isValideAge(age){
+    if(age.value > 18 && age.value < 65){
+        age.style.border = '2px solid green';
+        return true
+    }
+}
+
+function displayErrorMessage(errorMessage){
+    console.log(errorMessage)
+};
+
+
+
+function succesfulPopup() {
     hiddenScreen.style.display = 'flex';
 
     setTimeout(function () {
