@@ -1,9 +1,9 @@
 import {email, username, password, firstName, lastName, age, submitBtn, hiddenScreen} from "../modules/htmlselect.js";
 import {preventBack} from '../modules/auth.js';
 
-window.onload = () => {
-    preventBack()
-}
+// window.onload = () => {
+//     preventBack()
+// }
 
 let userDB = JSON.parse(localStorage.getItem('userDB')) || [];
 
@@ -17,10 +17,10 @@ function registerUser() {
 
     const newUser = {
         email: email.value,
-        username: username.value,
-        password: password.value,
-        firstName: firstName.value,
-        lastName: lastName.value,
+        username: username.value.trim(),
+        password: password.value.trim(),
+        firstName: firstName.value.trim(),
+        lastName: lastName.value.trim(),
         age: parseFloat(age.value)
     };
 
