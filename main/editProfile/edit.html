@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit.css">
+    <script type="module" src="edit.js"></script>
+    <!-- FAW -->
+    <script src="https://kit.fontawesome.com/15baf1b70e.js" crossorigin="anonymous"></script>
+    <title>Edit Profile</title>
+</head>
+<body>
+
+    <div class="edit_profile">
+        <nav>
+            <span id="back">
+                <i class="fa fa-arrow-left"></i>
+                <a href="/main/homePage/homepage.html">back to main</a>
+            </span>
+        </nav>
+
+        <div class="edit_form">
+            <div class="title"><h1>EDIT PROFILE</h1></div>
+
+            <div class="form_inputs">
+                
+                <div class="left">
+
+                    <div id="input_control">
+                        <label for="email" id="currentEmail"></label>
+                        <input type="email" placeholder="e-mail" id="email">
+                        <span class="error"></span>
+                    </div>
+                    <div id="input_control">
+                        <label for="username" id="currentUsername"></label>
+                        <input type="text" placeholder="Username" id="username">
+                        <span class="error"></span>
+                    </div>
+                    <div id="input_control">
+                        <label for="password" id="currentPass"></label>
+                        <input type="password" id="password" placeholder="password">
+                        <span class="error"></span>
+                    </div>
+
+                </div>
+
+                <div class="right">
+
+                    <div id="input_control">
+                        <label for="firstName" id="currentFirstName"></label>
+                        <input type="text" placeholder="First Name" id="firstName">
+                        <span class="error"></span>
+                    </div>
+                    <div id="input_control">
+                        <label for="lastName" id="currentLastName"></label>
+                        <input type="text" placeholder="Last Name" id="lastName">
+                        <span class="error"></span>
+                    </div>
+                    <div id="input_control">
+                        <label for="age" id="currentAge"></label>
+                        <input type="text" placeholder="Age" id="age">
+                        <span class="error"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="updateBtn">
+                <button id="submitBtn">Update</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- loading bar animation -->
+    <div id="rotatingBar">
+        <div class="custom-loader" id="loader"></div>
+    </div>
+</body>
+</html>

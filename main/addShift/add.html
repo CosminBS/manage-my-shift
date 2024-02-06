@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="add.css">
+    <script type="module" src="add.js"></script>
+    <!-- FAW -->
+    <script src="https://kit.fontawesome.com/15baf1b70e.js" crossorigin="anonymous"></script>
+    <title>Add Shift</title>
+</head>
+<body>
+
+    <div class="add_shifts">
+        <nav>
+            <span id="back">
+                <i class="fa fa-arrow-left"></i>
+                <a href="/main/homePage/homepage.html">back to main</a>
+            </span>
+        </nav>
+
+        <section>
+            
+            <div class="showAddShiftsField">
+                <button id="showAddForm"><i class="fa fa-plus"></i> New Shifts</button>
+            </div>
+
+            <div class="addTableRow" id="addForm">
+                <div class="addItem">
+                    <i class="fa fa-close" id="closeBtn"></i>
+                    <input type="date" id="date" placeholder="Date *">
+                    <input type="time" id="start_time" placeholder="Start time *">
+                    <input type="time" id="end_tine" placeholder="End time *">
+                    <input type="text" id="hourly_wage" placeholder="Howrly wage *">
+                    <select id="workplace">
+                        <option>Workplace</option>
+                        <option>Sibiu</option>
+                        <option>Cluj</option>
+                        <option>Bucuresti</option>
+                        <option>Brasov</option>
+                    </select>
+                    <input type="text" id="shift_slug" placeholder="Shift slug *">
+                    <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+                </div>
+                <div class="addButton">
+                    <button id="submitBtn">Add</button>
+                </div>
+            </div>
+
+            <div class="scroll-table">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Start time</th>
+                            <th>End time</th>
+                            <th>Hourly wage</th>
+                            <th>Shift place</th>
+                            <th>Total profit per shift</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="bestMonth">Lorem ipsum dolor sit amet.</p>
+
+        </section>
+
+    </div>
+
+    
+    <!-- loading bar animation -->
+    <div id="rotatingBar">
+        <div class="custom-loader" id="loader"></div>
+    </div>
+</body>
+</html>

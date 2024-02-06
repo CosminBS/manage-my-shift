@@ -18,7 +18,7 @@ body {
   height: 100dvh;
 }
 
-.register_form {
+.resetPassword_form {
   width: 500px;
   height: 650px;
   display: flex;
@@ -28,14 +28,14 @@ body {
   background-color: #fff;
   border-radius: 10px;
 }
-.register_form .title h1 {
+.resetPassword_form .title h1 {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
   color: #330000;
 }
-.register_form .form_inputs {
+.resetPassword_form .form_inputs {
   width: 400px;
   height: 400px;
   display: flex;
@@ -44,33 +44,33 @@ body {
   justify-content: center;
   gap: 15px;
 }
-.register_form .form_inputs div {
+.resetPassword_form .form_inputs div {
   width: 100%;
   height: 65px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.register_form .form_inputs div span {
+.resetPassword_form .form_inputs div span {
   padding-left: 10px;
   font-family: "Roboto", sans-serif;
   color: #ff3860;
   font-size: 13px;
 }
-.register_form .form_inputs div input {
+.resetPassword_form .form_inputs div input {
   width: 100%;
   height: 35px;
   padding-left: 10px;
   border: 2px solid #8c8c8c;
   font-family: "Roboto", sans-serif;
 }
-.register_form .form_inputs .success input {
+.resetPassword_form .form_inputs .success input {
   border-color: #09c372;
 }
-.register_form .form_inputs .error input {
+.resetPassword_form .form_inputs .error input {
   border-color: #ff3860;
 }
-.register_form .buttons {
+.resetPassword_form .buttons {
   width: 400px;
   height: 60px;
   display: flex;
@@ -78,11 +78,11 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.register_form .buttons .registerBtn {
+.resetPassword_form .buttons .resetBtn {
   width: 100%;
   height: 35px;
 }
-.register_form .buttons .registerBtn button {
+.resetPassword_form .buttons .resetBtn button {
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -95,40 +95,33 @@ body {
   font-size: 12px;
   transition: 0.1s ease-in-out;
 }
-.register_form .buttons .registerBtn button:hover {
+.resetPassword_form .buttons .resetBtn button:hover {
   background-color: #cb4f6e;
 }
-.register_form .buttons .more_links {
+.resetPassword_form .buttons .more_links {
   width: 70%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
-.register_form .buttons .more_links p {
-  color: #8c8c8c;
-  font-family: "Roboto", sans-serif;
-  font-size: 13px;
-}
-.register_form .buttons .more_links a {
+.resetPassword_form .buttons .more_links a {
   text-decoration: none;
   color: #8c8c8c;
   font-family: "Roboto", sans-serif;
   transition: 0.1s ease-in-out;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-.register_form .buttons .more_links a:hover {
+.resetPassword_form .buttons .more_links a:hover {
   color: #AF2C4C;
-  text-decoration: underline;
 }
 
 @media screen and (max-width: 480px) {
-  .register_form .form_inputs {
+  .resetPassword_form .form_inputs {
     width: 320px;
   }
-  .register_form .buttons {
+  .resetPassword_form .buttons {
     width: 320px;
   }
-  .register_form .buttons .more_links {
-    width: 100%;
-  }
-}/*# sourceMappingURL=register.css.map */
+}/*# sourceMappingURL=reset.css.map */

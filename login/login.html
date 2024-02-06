@@ -4,35 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <script type="module" src="./login.js"></script>
-    <title>NEXTron Log In</title>
+    <script type="module" src="login.js"></script>
+    <title>Log In</title>
 </head>
 <body>
     
-    <header>
-        <div class="banner"></div>
-
-        <div class="login_content">
-            <div class="title"><h1>Log in</h1></div>
-
-            <div class="login_form">
-                <form action="submit" >
-                    <input type="text" placeholder="username" id="username">
-                    <input type="password" placeholder="password" id="password">
-                </form>
+    <div class="login_form">
+        <div class="title"><h1>Log In</h1></div>
+        <div class="form_inputs">
+            <div class="input-control">
+                <input type="text" id="username" placeholder="Username">
+                <span class="error"></span>
             </div>
-
-            <div class="login_button">
-                <button id="submit">log in</button>
-                <div class="redirectedBtn">
-                    <a href="/register/register.html">Create an account</a>
-                    <a href="#">Forgot Password</a>
-                </div>
+            <div class="input-control">
+                <input type="password" id="password" placeholder="Password">
+                <span class="error"></span>
             </div>
-
         </div>
-
-    </header>
+        <div class="buttons">
+            <div class="loginBtn">
+                <button id="submitBtn">Log in</button>
+            </div>
+            <div class="more_links">
+                <a href="/resetPassword/resetPassword.html">Reset password</a>
+                <a href="/register/register.html">Create an account</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

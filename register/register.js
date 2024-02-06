@@ -1,151 +1,159 @@
-import {email, username, password, firstName, lastName, age, submitBtn, hiddenScreen} from "../modules/htmlselect.js";
-import {preventBack} from '../modules/auth.js';
+import { submitBtn, email, username, password, firstName, lastName, age } from '/modules/htmlselect.js';
 
-// window.onload = () => {
-//     preventBack()
-// }
+function preventBack(){
+    window.history.forward();
+}
 
-let userDB = JSON.parse(localStorage.getItem('userDB')) || [];
+setTimeout('preventBack()', 0);
+window.onunload = function() {null};
 
-submitBtn.addEventListener('click', (e) => {
+preventBack()
+
+submitBtn.addEventListener('click', (e) =>{
     e.preventDefault();
 
-    registerUser()
+    if(!isExistedUser(username.value)){
+        registerUser();
+    }
 });
+
+let userDB = JSON.parse(localStorage.getItem('userDB')) || [];
+let errorCounter = 0;
+
+// display errors and delte errors
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+    errorCounter += 1;
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error')
+    inputControl.classList.remove('success');
+}
+
+const setSucces = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+    errorCounter = 0;
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+}
+
+// Regex validation email and username
+const isValideEmail = email => {
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegex.test(email);
+}
+
+const isValideUsername = username => {
+    const usernameRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?& #])[A-Za-z\d@$!%*?& #]*$/;
+    return usernameRegex.test(username);
+}
 
 function registerUser() {
 
     const newUser = {
-        email: email.value,
+        id: Math.floor(Math.random() * 1000 ) + 1,
+        email: email.value.trim(),
         username: username.value.trim(),
         password: password.value.trim(),
         firstName: firstName.value.trim(),
         lastName: lastName.value.trim(),
         age: parseFloat(age.value)
-    };
-
-    let errorMessage = [];
-
-    if(!isValideEmail(email)){
-        errorMessage.push('Invalid email syntax')
-        email.style.border = '2px solid red'
-        email.placeholder = 'Invalid email syntax'
-        email.style.fontSize = '16px'
     }
 
-    if(!isValideUsername(username)){
-        errorMessage.push('Username must contain at least 6 characters long')
-        username.style.border = '2px solid red'
-        username.placeholder = 'Username must contain at least 6 characters long'
-        username.style.fontSize = '16px'
+    // validation
+    if(newUser.email === ''){
+        setError(email, 'Email is required')
+    } else if (!isValideEmail(newUser.email)){
+        setError(email, 'Provide a valid email address')
+    } else {
+        setSucces(email)
     }
 
-    if(!isValidePassword(password)){
-        errorMessage.push('Password must contain at least 6 characters long')
-        password.style.border = '2px solid red'
-        password.placeholder = 'Password must contain at least 6 characters long'
-        password.style.fontSize = '16px'
+    if(newUser.username.length < 6){
+        setError(username, 'Must contain at least 6 characters long');
+    }else if (!isValideUsername(newUser.username)){
+        setError(username, 'Must contain numbers and a special character')
+    } 
+    else {
+        setSucces(username)
     }
 
-    if(!isValideFirstName(firstName)){
-        errorMessage.push('First name must contain at least 2 character long')
-        firstName.style.border = '2px solid red'
-        firstName.placeholder = 'First name must contain at least 2 character long'
-        firstName.style.fontSize = '16px'
+    if(newUser.password.length < 6){
+        setError(password, 'Must contain at least 6 characters')
+    } else {
+        setSucces(password)
     }
 
-    if(!isValideLastName(lastName)){
-        errorMessage.push('Last name must contain at least 2 characters long')
-        lastName.placeholder = 'Last name must contain at least 2 characters long'
-        lastName.style.fontSize = '16px'
-        lastName.style.border = '2px solid red'
+    if(newUser.firstName.length < 2){
+        setError(firstName, 'Must contain at least 2 characters')
+    } else {
+        setSucces(firstName)
+    }
+
+    if(newUser.lastName.length < 2){
+        setError(lastName, 'Must contain at least 2 characters')
+    } else {
+        setSucces(lastName)
     }
 
     if(!isValideAge(age)){
-        errorMessage.push('Age must be between 18 and 65')
-        age.placeholder = 'Age must be between 18 and 65'
-        age.style.fontSize = '16px'
-        age.style.border = '2px solid red'
+        setError(age, 'Age must be between 18 and 65')
+    } else {
+        setSucces(age)
     }
 
-    if(errorMessage.length > 0){
-        displayErrorMessage(errorMessage)
+    if(errorCounter > 0){
+        return false
     } else {
         userDB.push(newUser);
         localStorage.setItem('userDB', JSON.stringify(userDB));
-        succesfulPopup()
-    };
-    
+        alert('Registered successfully!')
+        window.location.href = '/login/login.html';
+    }
 
-};
-
-function isValideEmail(email){
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    email.style.border = '2px solid green';
-    email.style.fontSize = '14px'
-
-    return emailRegex.test(email.value)
-    
 }
 
-function isValideUsername(username){
-    if(username.value.length >= 6){
-        username.style.border = '2px solid green';
-        username.style.fontSize = '14px';
-        return true    
-    }
-};
-
-function isValidePassword(password){
-    if(password.value.length >= 6){
-        password.style.border = '2px solid green';
-        password.style.fontSize = '14px';
-        return true
-    }
-};
-
-function isValideFirstName(firstName){
-    if(firstName.value.length >= 2){
-        firstName.style.border = '2px solid green';
-        firstName.style.fontSize = '14px';
-        return true
-    }
-};
-
-function isValideLastName(lastName){
-    if(lastName.value.length >= 2){
-        lastName.style.border = '2px solid green';
-        lastName.style.fontSize = '14px';
-        return true
-    }
-};
-
+// valide age function
 function isValideAge(age){
     if(age.value >= 18 && age.value <= 65){
-        age.style.border = '2px solid green';
-        age.style.fontSize = '14px';
         return true
     }
 }
 
-function displayErrorMessage(errorMessage){
-    console.log(errorMessage)
-};
+// verify if user already exist
+function isExistedUser(username) {
+    const existentUsers = JSON.parse(localStorage.getItem('userDB')) || [];
 
+    const existingUser = existentUsers.find((user) => user.username === username);
 
+    if (existingUser !== null && existingUser !== undefined) {
+        alert('User already exists. Please choose another username.');
+        location.reload()
+        return true;
+    }
 
-function succesfulPopup() {
-    hiddenScreen.style.display = 'flex';
-
-    setTimeout(function () {
-        hiddenScreen.style.opacity = '1';
-    }, 100)
-
-    setTimeout(function () {
-        hiddenScreen.style.opacity = '0';
-        setTimeout(function() {
-            hiddenScreen.style.display = 'none';
-        }, 500)
-    }, 2000)
-
+    return false;
 }
+
+
+// function isExistedUser(username) {
+//     const existentUsers = JSON.parse(localStorage.getItem('userDB'));
+
+//     if (Array.isArray(existentUsers)) {
+//         const existingUser = existentUsers.find((user) => user.username === username);
+        
+//         if (existingUser !== undefined) {
+//             alert('User already exists. Please choose another username.');
+//             location.reload();
+//             return true;
+//         }
+//     } else {
+//         console.error('Invalid data format in userDB:', existentUsers);
+//     }
+
+//     return false;
+// }

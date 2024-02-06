@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <script type="module" src="home.js"></script>
+    <!-- FAW -->
+    <script src="https://kit.fontawesome.com/15baf1b70e.js" crossorigin="anonymous"></script>
+    <title>Manage-My-Shift</title>
+</head>
+<body>
+    
+    <!-- navigation bar -->
+    <nav>
+        <div class="navbar">
+            <div id="openNav" ><i class="fa fa-bars"></i></div>
+            <div class="logo">
+                <img src="/style/logo.png" alt="logo" id="logoImg">
+                <span>ManageMyShifts</span>
+            </div>
+
+            <div class="nav_container">
+                <div id="closeNav">
+                    <span>ManageMyShift</span>
+                    <i class="fa fa-close"></i>
+                </div>
+            
+                <div class="center_nav-links">
+    
+                    <ul>
+                        <li><a href="/main/addShift/add.html">My Shifts</a></li>
+                        <li><a href="/main/editProfile/edit.html">Edit Profile</a></li>
+                    </ul>
+                </div>
+    
+                <div class="right_nav-links">
+                    <span id="showUsername"></span>
+                    <div class="logOutBtn">
+                        <button id="submitBtn">Log Out</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- end -->
+
+    <main>
+        <div class="main_container">
+            <div class="filter">
+                <span class="byPlace">
+                    <select name="shifts" id="workplace">
+                        <option>Workplace</option>
+                        <option>Sibiu</option>
+                        <option>Cluj</option>
+                        <option>Bucuresti</option>
+                        <option>Brasov</option>
+                    </select>
+                    <button id="filterByPlace">Filter</button>
+                </span>
+                <span class="byDate">
+                    <input type="date" id="selectDate">
+                    <button id="filterByDate">Filter</button>
+                </span>
+                <span class="resetBtn"><button id="reset">Reset filter</button></span>
+            </div>
+
+            
+            <div class="scroll-table">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Created By</th>
+                            <th>Date</th>
+                            <th>Start time</th>
+                            <th>End time</th>
+                            <th>Workplace</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer_container">
+            <div class="left_footer">
+                <div class="logo">
+                    <img src="/style/logo-white.png" alt="logo" id="logoImg">
+                    <span>ManageMyShifts</span>
+                </div>
+            </div>
+            <div class="right_footer">
+                <ul>
+                    <li><a href="/main/addShift/add.html">My Shifts</a></li>
+                    <li><a href="/main/editProfile/edit.html">Edit Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

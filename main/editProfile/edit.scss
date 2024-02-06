@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #330000;
+    background-image: url(/style/rose-petals.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100dvh;
+}
+
+.edit_profile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+nav{
+    width: 100%;
+    height: 8dvh;
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    border-bottom: 2px solid #EEEEEE;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    #back{
+        width: 105px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        a{
+            text-decoration: none;
+            color: #9B9B9B;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            transition: .3s ease-in-out;
+        }
+        i{
+            font-size: 12px;
+            color: #9B9B9B;
+            transition: .3s ease-in-out;
+        }
+    }
+    #back:hover{
+        a{
+            color: #000;
+            text-decoration: underline;
+            transform: translateX(-5px);
+        }
+        i{
+            color: #000;
+            transform: translateX(-5px);
+        }
+    }
+}
+
+
+.edit_form{
+    width: 70%;
+    height: 500px;
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    justify-content: space-between;
+    .title h1{
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: #330000;
+    }
+    .form_inputs{
+        width: 100%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        div{
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            label{
+                padding-left: 10px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+                display: flex;
+                width: 300px;
+                color: #8c8c8c;
+            }
+            span{
+                padding-left: 10px;
+                font-family: 'Roboto', sans-serif;
+                color: #ff3860;
+                font-size: 13px;
+                width: 300px;
+
+            }
+            input{
+                width: 300px;
+                height: 35px;
+                padding-left: 10px;
+                border: 2px solid #8c8c8c;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+        .success input {
+            border-color: #09c372;
+        }
+        .error input {
+            border-color: #ff3860;
+            
+        }
+    }
+    .updateBtn{
+        width: 300px;
+        height: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        button{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            background-color: #AF2C4C;
+            border: none;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-size: 12px;
+            transition: .1s ease-in-out;
+            }
+            button:hover{
+                background-color: #cb4f6e;
+            }
+        }
+    
+}
+
+
+@media screen and (max-width: 920px) {
+
+    body{
+        height: 170dvh;
+        #rotatingBar{
+            height: 170dvh;
+        }
+    }
+
+        .edit_form{
+            width: 80%;
+            height: 140dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .form_inputs{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                height: 80%;
+                div{
+                    width: 90%;
+                    span{
+                        width: 260px;
+                    }
+                    label{
+                        width: 260px;
+                    }
+                    input{
+                        width: 260px;
+                    }
+                }
+            }
+            .updateBtn{
+                button{
+                    width: 260px;
+                }
+            }
+        }
+}
+
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #330000;
+}
+   
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+    border-radius: 10px;
+}
+
+#rotatingBar{
+    width: 100%;
+    height: 100%;
+    background-color: #000000a8;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: .2s ease-in-out;
+    .custom-loader {
+        width: 100px;
+        height: 100px;
+        display: grid;
+    }
+    .custom-loader::before,
+    .custom-loader::after {    
+        content:"";
+        grid-area: 1/1;
+        --c: radial-gradient(farthest-side,#AF2C4C 92%,#0000);
+        background: 
+          var(--c) 50%  0, 
+          var(--c) 50%  100%, 
+          var(--c) 100% 50%, 
+          var(--c) 0    50%;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        animation: s2 1s infinite;
+    }
+    .custom-loader::before {
+      margin:4px;
+      filter:hue-rotate(45deg);
+      background-size: 20px 20px;
+      animation-timing-function: linear
+    }
+    
+    @keyframes s2{ 
+      100%{transform: rotate(.5turn)}
+    }
+}

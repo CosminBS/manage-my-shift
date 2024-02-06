@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #330000;
+    background-image: url(/style/rose-petals.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100dvh;
+}
+
+.add_shifts{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+nav{
+    width: 100%;
+    height: 8dvh;
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    border-bottom: 2px solid #EEEEEE;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    #back{
+        width: 105px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        a{
+            text-decoration: none;
+            color: #9B9B9B;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            transition: .3s ease-in-out;
+        }
+        i{
+            font-size: 12px;
+            color: #9B9B9B;
+            transition: .3s ease-in-out;
+        }
+    }
+    #back:hover{
+        a{
+            color: #000;
+            text-decoration: underline;
+            transform: translateX(-5px);
+        }
+        i{
+            color: #000;
+            transform: translateX(-5px);
+        }
+    }
+}
+
+
+section{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .showAddShiftsField{
+        width: 150px;
+        height: 75px;
+        button{
+            width: 120px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+    .scroll-table{
+        width: 100%;
+        max-height: 400px;
+        overflow: auto;
+        box-shadow: 15px 15px 45px 5px #000000a5;
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            thead{
+                background-color: #f2f2f2;
+            }
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                max-height: 40px;
+                transition: .5s ease-in-out;
+            }
+            tbody{
+                background: none;
+                border: 1px solid #fff;
+                color: #fff;
+            }
+            i{
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    .addTableRow{
+        width: 60%;
+        height: 600px;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 15px 15px 45px 5px #000000a5;
+        border-radius: 10px;
+        position: absolute;
+        left: 22%;
+        transition: .9s ease-in-out;
+        top: -100%;
+        z-index: 99;
+        .addItem{
+            width: 90%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            font-family: 'Roboto', sans-serif;
+            i{
+                cursor: pointer;
+            }
+            select{
+                width: 300px;
+                height: 35px;
+                font-family: 'Roboto', sans-serif;
+            }
+            input{
+                width: 300px;
+                height: 35px;
+                padding: 10px;
+                align-items: center;
+                font-family: 'Roboto', sans-serif;
+            }
+            textarea{
+                width: 300px;
+                resize: none;
+                padding: 10px;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+        .addButton{
+            button{
+                width: 300px;
+                height: 35px;
+                cursor: pointer;
+                font-family: 'Poppins', sans-serif;
+                background-color: #AF2C4C;
+                border: none;
+                color: #fff;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+                font-size: 12px;
+                transition: .1s ease-in-out;
+            }
+            button:hover{
+                background-color: #cb4f6e;
+            }
+        }
+    }
+    #bestMonth{
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+        color: #fff;
+        width: 100%;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 75%;
+        left: 0;
+    }
+}
+
+#rotatingBar{
+    width: 100%;
+    height: 100%;
+    background-color: #000000a8;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: .2s ease-in-out;
+    .custom-loader {
+        width: 100px;
+        height: 100px;
+        display: grid;
+    }
+    .custom-loader::before,
+    .custom-loader::after {    
+        content:"";
+        grid-area: 1/1;
+        --c: radial-gradient(farthest-side,#AF2C4C 92%,#0000);
+        background: 
+          var(--c) 50%  0, 
+          var(--c) 50%  100%, 
+          var(--c) 100% 50%, 
+          var(--c) 0    50%;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        animation: s2 1s infinite;
+    }
+    .custom-loader::before {
+      margin:4px;
+      filter:hue-rotate(45deg);
+      background-size: 20px 20px;
+      animation-timing-function: linear
+    }
+    
+    @keyframes s2{ 
+      100%{transform: rotate(.5turn)}
+    }
+}
+
+.stop-animation::before,
+.stop-animation::after {
+    animation-play-state: paused;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #330000;
+}
+   
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 510px) {
+    section{
+        .addTableRow{
+            width: 100%;
+            left: 0;
+        }
+    }
+}
