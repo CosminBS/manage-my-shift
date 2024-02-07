@@ -6,7 +6,6 @@ const animation = document.getElementById('rotatingBar');
 const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
 const closeBTn = document.getElementById('closeBtn');
 const p = document.getElementById('bestMonth');
-let totalMonth = 0;
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -173,6 +172,39 @@ function updateMasterDataTable() {
 p.textContent = 'Best month for you is';
 
 
+// calculate best month
 function calculateBestMonth() {
-    
+    const saveData = JSON.parse(localStorage.getItem(`dataTableUser#${loggedUser.username}`));
+    const monthNames = ['January', 'February', 'March', 'April', "May", 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const monthlyProfits = {};
+    saveData.forEach(entry => {
+        const date = new Date(entry.date);
+        const month = date.getMonth();
+        const totalProfit = entry.totalProfit || 0;
+
+        if (!monthlyProfits[month]) {
+            monthlyProfits[month] = totalProfit;
+        } else {
+            monthlyProfits[month] += totalProfit;
+        }
+    });
+
+        let bestMonthIndex = 0;
+        let bestMonthProfit = 0;
+
+        Object.keys(monthlyProfits).forEach(monthIndex => {
+            const profit = monthlyProfits[monthIndex];
+            if(profit > bestMonthProfit){
+                bestMonthProfit = profit;
+                bestMonthIndex = monthIndex
+            }
+        })
+
+        const bestMonthName = monthNames[bestMonthIndex];
+        p.textContent = 'Your best month is ' + `${bestMonthName}` + ' with an avarage of: ' + `${bestMonthProfit}` + ' $';
+        console.log(bestMonthName)
+        console.log(bestMonthProfit);
 }
+
+calculateBestMonth();
