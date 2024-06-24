@@ -140,20 +140,3 @@ function isExistedUser(username) {
 }
 
 
-// function isExistedUser(username) {
-//     const existentUsers = JSON.parse(localStorage.getItem('userDB'));
-
-//     if (Array.isArray(existentUsers)) {
-//         const existingUser = existentUsers.find((user) => user.username === username);
-        
-//         if (existingUser !== undefined) {
-//             alert('User already exists. Please choose another username.');
-//             location.reload();
-//             return true;
-//         }
-//     } else {
-//         console.error('Invalid data format in userDB:', existentUsers);
-//     }
-
-//     return false;
-// }

@@ -76,22 +76,8 @@ function addDataTable() {
         updateAnimation();
     }
 
-    // Add row to table
-    // addRow(tableValue);
-
-    // // Save data to localStorage
-    // userDataTable.push(tableValue);
-    // localStorage.setItem(`dataTableUser#${loggedUser.username}`, JSON.stringify(userDataTable));
-    // updateMasterDataTable()
-
-    // Hide add shifts form
     addForm.style.top = '-100%';
-    
-    // loading animation
-    // animation.style.display = 'flex';
 
-    // Start save data animation
-    // updateAnimation();
 }
 
 
